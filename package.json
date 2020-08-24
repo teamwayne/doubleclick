@@ -1,0 +1,20 @@
+{
+  "name": "doubleclick",
+  "version": "1.0.0",
+  "description": "DoubleClick library for manage.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "teamwaynegithub"
+  },
+  "keywords": [
+    "doubleclick",
+    "manage.js",
+    "google analytics"
+  ],
+  "author": "Jeff Cheung",
+  "license": "ISC"
+}

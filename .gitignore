@@ -1,0 +1,9 @@
+.cache
+/node_modules
+node_modules*
+*.log
+.DS_Store
+.npmrc
+/dist
+/notes.md
+.vscode/
