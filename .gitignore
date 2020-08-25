@@ -7,3 +7,4 @@ node_modules*
 /dist
 /notes.md
 .vscode/
+.jshintrc

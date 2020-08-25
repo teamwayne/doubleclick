@@ -1,4 +1,0 @@
-        /*! date: <%- date %> */
-        (function() {
-          <%= contents %>
-        })();

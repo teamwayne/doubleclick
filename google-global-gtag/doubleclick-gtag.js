@@ -1,4 +1,4 @@
-export const getDcAccount = (domain, pageId) => {
+const getDcAccount = (domain, pageId) => {
   switch(true) {
     case /sgio/i.test(domain) || /sgio/i.test(pageId):
       return '5969419';
@@ -20,10 +20,9 @@ export const getDcAccount = (domain, pageId) => {
   }
 };
 
-var dcAccount = 'DC-' + getDcAccount(window.location.hostname, (b.pageId || window.__pageId || window.location.pathname));
 
-var fireGTag = function () {
-
+const fireGTag = (pageId) => {
+  const dcAccount = 'DC-' + getDcAccount(window.location.hostname, (pageId || window.__pageId || window.location.pathname));
   // Exit if superTag on page.
   if (window.superT) return;
   // Check if gtag  already loaded.
@@ -47,7 +46,7 @@ var fireGTag = function () {
   // End: From the Global Site Tag in DCM
 };
 
-var getGoogleAdsAccount = function(domain, pageId) {
+const getGoogleAdsAccount = (domain, pageId) => {
   switch (true) {
     case /nrma/i.test(domain) && /nrma/i.test(pageId):
       return '1068824624';
@@ -56,9 +55,10 @@ var getGoogleAdsAccount = function(domain, pageId) {
   }
 };
 
-var googleAdsAccount = 'AW-' + getGoogleAdsAccount(window.location.hostname, (b.pageId || window.__pageId || window.location.pathname));
+// var googleAdsAccount = 'AW-' + getGoogleAdsAccount(window.location.hostname, (b.pageId || window.__pageId || window.location.pathname));
 
-var fireGoogleAdsTag = function () {
+var fireGoogleAdsTag = function (pageId) {
+  const googleAdsAccount = 'AW-' + getGoogleAdsAccount(window.location.hostname, (pageId || window.__pageId || window.location.pathname));
   if (window.superT || googleAdsAccount === 'AW-1234567') return;
   // Check Whether the Google Ads tag been loaded.\
   if (!window.gtag) {
@@ -78,10 +78,10 @@ var fireGoogleAdsTag = function () {
   window.gtag('config', googleAdsAccount);
 };
 
-window.gTagTrigger = function () {
+const gTagTrigger = (pageId) => {
   try {
-    fireGTag();
-    fireGoogleAdsTag();
+    fireGTag(pageId);
+    fireGoogleAdsTag(pageId);
   } catch (e) {
     // Send any errors to Splunk
     var timeStamp = new Date().getTime();
@@ -90,7 +90,7 @@ window.gTagTrigger = function () {
     var queryString = '?reqId=' + reqId
       + '&gTagError=' + encodeURIComponent(e)
       + '&domain=' + encodeURIComponent(window.location.hostname)
-      + '&pageId=' + encodeURIComponent(b.pageId || window.__pageId || window.location.pathname);
+      + '&pageId=' + encodeURIComponent(pageId || window.__pageId || window.location.pathname);
     var src = 'https://apps.nrma.com.au/si/track.gif';
     if (location.host.indexOf('.com.au') < 0) {
       src = 'https://ints.apps.nrma.auiag.corp/si/track.gif';
@@ -100,3 +100,5 @@ window.gTagTrigger = function () {
     img.src = src;
   }
 };
+
+export default gTagTrigger;

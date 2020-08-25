@@ -1,4 +1,7 @@
 // Safely load load object.
+import FL_UTILS from '../utils/utils';
+import {getUParams} from './uParams';
+
 window.load = window.load || {};
 window.load.tags = window.load.tags || {};
 // Inherit common Tealium helper tools from IAG Common Tealium Helpers Extension
@@ -6,7 +9,17 @@ window.utag_data = window.utag_data || {};
 // Use load.tools, but if doesn't exist, use utag_data.tools
 var tools = window.load.tools || window.utag_data.tools || {};
 
-var DCMTAGS = {  
+let dataObj = {};
+  
+const setDataObj = data => {
+  dataObj = {
+    ...data
+  };
+  console.log(dataObj);
+};
+const getDataObj = () => dataObj;
+
+const DCMTAGS = {  
   // Stores the pageId after FL_UTILS.getPageId() is run.
   pageId: '',
   // Stores each tag which has been fired to avoid double-firing of tags.
@@ -149,8 +162,8 @@ var DCMTAGS = {
    * @param {object} brandObj Object returned by this.getBrand()
    */
   retrieveUParams: function (brandObj) {
-    if (UPARAMS) {
-      return this.assembleUParams(UPARAMS.getUParams(brandObj.name, this.pageId));
+    if (getUParams) {
+      return this.assembleUParams(getUParams(brandObj.name, this.pageId, getDataObj()));
     }
     // Still return what we can if uParamsFunc function doesn't exist.
     return this.assembleUParams({'customVars': undefined});
@@ -285,7 +298,6 @@ var DCMTAGS = {
    * @param {object} allTagsObj The global tag object set in load: window.load.tags.dcmtags
    */
   handleDCMTags: function(allTagsObj, brandObj) {
-
     var tagsObj = allTagsObj[brandObj.name];
 
     // Exception handling
@@ -319,9 +331,10 @@ var DCMTAGS = {
   /**
    * Execute function is fired in different places dependent on tag container.
    */
-  execute: function () {
+  execute: function (data) {
     try {
-      this.pageId = FL_UTILS.getPageId();
+      setDataObj(data);
+      this.pageId = data.pageId;
       var brandObj = this.getBrandObj(FL_UTILS.getBrandArr(), this.brandMapperObj);
 
       // Exception handling
@@ -342,3 +355,5 @@ var DCMTAGS = {
     }
   },
 };
+
+export default DCMTAGS;

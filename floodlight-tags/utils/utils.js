@@ -1,4 +1,4 @@
-var FL_UTILS = {
+const FL_UTILS = {
   //*********** SETTINGS START (User configurable settings for this library) ***********/
   // Tag container where Floodlight is executed. ** DO NOT CHANGE THIS STRING ** It's used in this.retrieveUParams().
   container: 'Tealium',
@@ -6,7 +6,7 @@ var FL_UTILS = {
    * Function to retrieve pageId string.
    * Is set as function so it doesn't execute at the time the library is loaded as the pageId might not be ready yet.
    */
-  getPageId: function() {
+  getPageId: () => {
     if (typeof b !== 'undefined' && b.pageId) return b.pageId;
     if (window.__pageId) return window.__pageId;
     if (window.utag && window.utag.data && window.utag.data.pageId) return window.utag.data.pageId;
@@ -16,7 +16,7 @@ var FL_UTILS = {
    * Function to return an array of possible strings which contain the IAG brand name.
    * Is set as function so it doesn't execute at the time the library is loaded as the pageId might not be ready yet.
   */
-  getBrandArr: function() {
+  getBrandArr: () => {
     return [
       window.load.config && window.load.config.brand ? window.load.config.brand : false,
       typeof b !== 'undefined' && b.pageId ? b.pageId : false,
@@ -29,3 +29,4 @@ var FL_UTILS = {
   },
   /*********** SETTINGS END ***********/
 };
+export default FL_UTILS;
