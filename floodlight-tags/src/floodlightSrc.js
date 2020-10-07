@@ -334,7 +334,7 @@ const DCMTAGS = {
 
       // Use loadRules handler to determine if tag should fire. Also handles multiPage scenarios.
       if (tools.loadRules.handler(tagsObj[tag], this.pageId)) {
-        if (typeof tagsObj[tag].targetProduct !== undefined && data.data_product) {
+        if (tagsObj[tag].targetProduct && data.data_product) {
           // Target Product is not matched. skip to next iteration loop.
           if (!this.handleCheckProduct(tagsObj[tag].targetProduct, data)) continue;
         }
