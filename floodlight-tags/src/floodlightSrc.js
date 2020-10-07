@@ -292,6 +292,16 @@ const DCMTAGS = {
 
   },
   /**
+   * Serenity Products checking - all products are having same pageId in serenity
+   * This function is checking the adobe_products whether it matching the target rules.
+   * @param {String} targetProduct - Target Product base on the product match rules
+   */
+  handleCheckProduct: function(targetProduct, data) {
+    return (data.product.some(function(product) { 
+      return targetProduct.test(product); 
+    }));
+  },
+  /**
    * Key handler to deciding what Floodlight tag to fire.
    * Iterates through each floodlight tag object and decides if it should be fired or not.
    * Uses a guard clause pattern as opposed to nested if statements to aid clarity.
@@ -299,6 +309,7 @@ const DCMTAGS = {
    */
   handleDCMTags: function(allTagsObj, brandObj) {
     var tagsObj = allTagsObj[brandObj.name];
+    var data = getDataObj();
 
     // Exception handling
     if (!tagsObj) throw 'No Floodlight tags found for this Brand';
@@ -323,6 +334,10 @@ const DCMTAGS = {
 
       // Use loadRules handler to determine if tag should fire. Also handles multiPage scenarios.
       if (tools.loadRules.handler(tagsObj[tag], this.pageId)) {
+        if (typeof tagsObj[tag].targetProduct !== undefined && data.product) {
+          // Target Product is not matched. skip to next iteration loop.
+          if (!this.handleCheckProduct(tagsObj[tag].targetProduct, data)) continue;
+        }
         this.handleTagFire(tag, tagsObj[tag], brandObj);
         continue;
       }
