@@ -297,7 +297,7 @@ const DCMTAGS = {
    * @param {String} targetProduct - Target Product base on the product match rules
    */
   handleCheckProduct: function(targetProduct, data) {
-    return (data.product.some(function(product) { 
+    return (data.data_product.some(function(product) { 
       return targetProduct.test(product); 
     }));
   },
@@ -334,7 +334,7 @@ const DCMTAGS = {
 
       // Use loadRules handler to determine if tag should fire. Also handles multiPage scenarios.
       if (tools.loadRules.handler(tagsObj[tag], this.pageId)) {
-        if (typeof tagsObj[tag].targetProduct !== undefined && data.product) {
+        if (typeof tagsObj[tag].targetProduct !== undefined && data.data_product) {
           // Target Product is not matched. skip to next iteration loop.
           if (!this.handleCheckProduct(tagsObj[tag].targetProduct, data)) continue;
         }
