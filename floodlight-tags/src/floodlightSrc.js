@@ -15,7 +15,6 @@ const setDataObj = data => {
   dataObj = {
     ...data
   };
-  console.log(dataObj);
 };
 const getDataObj = () => dataObj;
 
