@@ -76,6 +76,10 @@ var fireGoogleAdsTag = function (pageId) {
     window.gtag('js', new Date());
   }
   window.gtag('config', googleAdsAccount);
+
+  if (/nrma/i.test(window.location.hostname) && /nrma/i.test((pageId || window.__pageId || window.location.pathname))) {
+    window.gtag('config', 'AW-353813620');
+  }
 };
 
 const gTagTrigger = (pageId) => {
