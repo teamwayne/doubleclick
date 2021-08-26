@@ -71,21 +71,13 @@ export const getUParams = (brand, pageId, data) => {
   if (typeof data !== 'undefined') {
     customVars.crodsId = data.data.adobe_primary_customer_id;
     customVars.policyNumber = data.data_policyNumber;
-    customVars.sessionId = data.tealium_session_id;
+    customVars.sessionId = data.sessionId;
     customVars.transactionId = data.data_receiptNumber;
     customVars.paymentMethod = cleanStr(data.data_paymentMethod, ['visa','mastercard','creditcard','directdebit','paypal']);
     customVars.paymentFrequency = cleanStr(data.data_paymentFrequency, ['annual','monthly','halfyear']);
     customVars.remarketingSlice = data.remarketing_slice; // PER-3529
 
   // PER-6551 Search utag_data if not found in the b object.  
-  } else if (w.utag_data) {
-    customVars.crodsId = w.utag_data.adobe_primary_customer_id;
-    customVars.policyNumber = w.utag_data.data_policyNumber;
-    customVars.sessionId = w.utag_data.tealium_session_id;
-    customVars.transactionId = w.utag_data.data_receiptNumber;
-    customVars.paymentMethod = cleanStr(w.utag_data.data_paymentMethod, ['visa','mastercard','creditcard','directdebit','paypal']);
-    customVars.paymentFrequency = cleanStr(w.utag_data.data_paymentFrequency, ['annual','monthly','halfyear']);
-    customVars.remarketingSlice = w.utag_data.remarketing_slice; // PER-3529
   }
   return customVars;
 };

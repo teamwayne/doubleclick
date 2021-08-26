@@ -1,10 +1,10 @@
-# IAG Tealium Floodlight Tags
+# IAG Manage Floodlight Tags
 
-The `tealium-floodlight` tag is simply a custom Javascript in Tealium built for the purpose of simplifying the rollout of Google DoubleClick Floodlight tags.
+The `manage-floodlight` tag is simply a custom Javascript in manage built for the purpose of simplifying the rollout of Google DoubleClick Floodlight tags.
 
 ## Defining tags in the brand specific `tags` object
 
-Each brand (nrma, cgu, scic, sgio...) have its own tag structure, this tag structure is defined in a JSON object (see example below) which is stored in an Extension in Tealium, named **[BRAND] Double Click Programmatic: Tags Config Object**. Floodlight tags are targeted based on the `pageId` of the global `dataLayer` object, (which is mapped to b.pageId). This is needed as some of the Drupal journeys don't change pathnames as new pages are displayed E.g. the CGU Boat Quote Start and Complete.
+Each brand (nrma, cgu, scic, sgio...) have its own tag structure, this tag structure is defined in a JSON object (see example below) which is stored in an Extension in Manage, named **[BRAND] Double Click Programmatic: Tags Config Object**. Floodlight tags are targeted based on the `pageId` of the global `dataLayer` object, (which is mapped to b.pageId). This is needed as some of the Drupal journeys don't change pathnames as new pages are displayed E.g. the CGU Boat Quote Start and Complete.
 
 The tag configuration should look like this:
 
@@ -30,7 +30,7 @@ Please note that the `targetPage` variable can be set to `ALL` if the tag needs 
 Also, `'onClick': true` enables custom event handling. Currently this is only to track some modals on CGU for the Moretime pages but could be refactored to handle more generic click or mutation events.
 
 ## Floodlight Tag Master Spreadsheet
-A Google sheet has been made as both a record of the Floodlight tags implemented, and to help create new Floodlight tag objects (called the `tags` Json), used in the directory `./tealium-floodlight/src-brand`. This is located here: https://docs.google.com/spreadsheets/d/1FL9GH_JsyFTo4J8ZT5D5li1xsIXq5TvUYu0TTzlnxic/edit?usp=sharing
+A Google sheet has been made as both a record of the Floodlight tags implemented, and to help create new Floodlight tag objects (called the `tags` Json), used in the directory `./manage-floodlight/src-brand`. This is located here: https://docs.google.com/spreadsheets/d/1FL9GH_JsyFTo4J8ZT5D5li1xsIXq5TvUYu0TTzlnxic/edit?usp=sharing
 
 To use it, simply add a new row to any of the \*.js sheets, (e.g. CGU (cgu.js)) filling in each column as appropriate. When you want to generate the new `tags` Json, select the 'Wayne's Toolbox' menu, then 'Generate Floodlight Json'. A new sheet called 'Tags Json' will be created.
 
@@ -46,7 +46,7 @@ Check out the repository and `npm install`.
 
 ### Environments
 
-The library will produce three different versions of the same code, this is to align with the Tealium environments and also allow for e.g. prod, qa or dev specific settings. The environments are:
+The library will produce three different versions of the same code, this is to align with the Manage environments and also allow for e.g. prod, qa or dev specific settings. The environments are:
 
 - src
 - dev

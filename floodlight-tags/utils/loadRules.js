@@ -35,7 +35,7 @@ const  loadRules = () => {
     /**
      * Handle "pageId" and "document.location" targetSource single loadRule.
      * @param {object} loadRuleObj The single load rule object
-     * @param {string} pageId (optional) The pageId used in Adobe derived from either Tealium or Supertag
+     * @param {string} pageId (optional) The pageId used in Adobe derived from either Manage, Tealium or Supertag
      */
     loadRuleObjHandler: function(loadRuleObj, pageId) {
 
@@ -108,7 +108,7 @@ const  loadRules = () => {
     /**
      * Handle multi target cases by checking if the tag has fired previously by using session storage / cookie.
      * @param {object} loadRuleObj The single load rule object
-     * @param {object} pageId (optional) The pageId used in Adobe derived from either Tealium or Supertag
+     * @param {object} pageId (optional) The pageId used in Adobe derived from either Manage, Tealium or Supertag
      */
     multiTargetHandler: function(loadRuleObj, pageId) {
       var firedLoadRules = this.getFiredLoadRules(this.settings.mTKey) || 'blank';
@@ -123,7 +123,7 @@ const  loadRules = () => {
     /**
      * Handle single target cases.
      * @param {object} loadRuleObj The single load rule object
-     * @param {object} pageId (optional) The pageId used in Adobe derived from either Tealium or Supertag
+     * @param {object} pageId (optional) The pageId used in Adobe derived from either Manage, Tealium or Supertag
      */
     singleTargetHandler: function (loadRuleObj, pageId) {
       if (this.loadRuleObjHandler(loadRuleObj, pageId)) {
@@ -141,7 +141,7 @@ const  loadRules = () => {
     /**
      * Handle multi target and standard cases.
      * @param {object} loadRuleObj The single load rule object
-     * @param {object} pageId (optional) The pageId used in Adobe derived from either Tealium or Supertag
+     * @param {object} pageId (optional) The pageId used in Adobe derived from either Manage, Tealium or Supertag
      */
     targetHandler: function(loadRuleObj, pageId) {
       // Handle multiTarget cases
@@ -154,7 +154,7 @@ const  loadRules = () => {
     /**
      * Handle "pageId" and "document.location" targetSource from single or multiple loadRule object.
      * @param {object} loadRuleObj The single or multiple loadRule object.
-     * @param {string} pageId (optional) The pageId used in Adobe derived from either Tealium or Supertag
+     * @param {string} pageId (optional) The pageId used in Adobe derived from either Manage, Tealium or Supertag
      */
     loadRuleHandler: function(loadRuleObj, pageId) {
 
@@ -183,7 +183,7 @@ const  loadRules = () => {
      *  'journey': (optional) @param {boolean} e.g. true (Denotes if tag runs on a journey. If it doesn't then the fired load rules array in session storage / cookie is deleted),
      * };
      * @param {object} loadRuleObj The single or multiple loadRule object.
-     * @param {string} pageId (optional) The pageId used in Adobe derived from either Tealium or Supertag
+     * @param {string} pageId (optional) The pageId used in Adobe derived from either Manage, Tealium or Supertag
      */
     handler: function(loadRuleObj, pageId) {
       // Handle if targetPage doesn't exist

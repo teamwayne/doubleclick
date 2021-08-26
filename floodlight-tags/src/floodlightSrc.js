@@ -4,10 +4,9 @@ import {getUParams} from './uParams';
 
 window.load = window.load || {};
 window.load.tags = window.load.tags || {};
-// Inherit common Tealium helper tools from IAG Common Tealium Helpers Extension
-window.utag_data = window.utag_data || {};
-// Use load.tools, but if doesn't exist, use utag_data.tools
-var tools = window.load.tools || window.utag_data.tools || {};
+// Inherit common Tealium helper tools from IAG.
+
+var tools = window.load.tools || {};
 
 let dataObj = {};
   
