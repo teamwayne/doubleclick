@@ -1,7 +1,7 @@
 const FL_UTILS = {
   //*********** SETTINGS START (User configurable settings for this library) ***********/
   // Tag container where Floodlight is executed. ** DO NOT CHANGE THIS STRING ** It's used in this.retrieveUParams().
-  container: 'Tealium',
+  container: 'Manage',
   /**
    * Function to retrieve pageId string.
    * Is set as function so it doesn't execute at the time the library is loaded as the pageId might not be ready yet.
