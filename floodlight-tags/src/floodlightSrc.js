@@ -50,6 +50,10 @@ const DCMTAGS = {
       'name': 'bendigobank',
       'advertiserId': '6773703',
     },
+    'racv': {
+      'name': 'racv',
+      'advertiserId': '10875206'
+    }
   },
   /* Run the main function of this library. See this.execute() for further information.
    * Note the parameters of this.handleDCMTags() is the dcmtags object set globally in window.load.tags.
