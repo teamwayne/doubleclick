@@ -1,11 +1,11 @@
-// ***SGIC Floodlight Tags for Tealium***
+// ***SGIC Floodlight Tags for Manage***
 // Last Generated: 2019-09-29T07:12:17
 // Number of tags converted: 37
 
 window.load = window.load || {};
 window.load.tags = window.load.tags || {};
-window.load.tags.dcmtagsTealium = window.load.tags.dcmtagsTealium || {};
-window.load.tags.dcmtagsTealium.sgic = {
+window.load.tags.dcmtagsManage = window.load.tags.dcmtagsManage || {};
+window.load.tags.dcmtagsManage.sgic = {
   'SGIC Retargeting Slice Allocation': {
     'type': 'rtgexp',
     'cat': 'retar0',

@@ -1,11 +1,11 @@
-// ***CGU Floodlight Tags for Tealium***
+// ***CGU Floodlight Tags for Manage***
 // Last Generated: 2019-09-29T07:11:49
 // Number of tags converted: 116
 
 window.load = window.load || {};
 window.load.tags = window.load.tags || {};
-window.load.tags.dcmtagsTealium = window.load.tags.dcmtagsTealium || {};
-window.load.tags.dcmtagsTealium.cgu = {
+window.load.tags.dcmtagsManage = window.load.tags.dcmtagsManage || {};
+window.load.tags.dcmtagsManage.cgu = {
   'CGU Retargeting Slice Allocation': {
     'type': 'rtgexp',
     'cat': 'retarg0',

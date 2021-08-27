@@ -9,8 +9,8 @@
   }
   window.load = window.load || {};
   window.load.tags = window.load.tags || {};
-  window.load.tags.dcmtagsTealium = window.load.tags.dcmtagsTealium || {};
-  window.load.tags.dcmtagsTealium.cgu = {
+  window.load.tags.dcmtagsManage = window.load.tags.dcmtagsManage || {};
+  window.load.tags.dcmtagsManage.cgu = {
     "CGU Retargeting Slice Allocation": {
       type: "rtgexp",
       cat: "retarg0",

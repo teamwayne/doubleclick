@@ -1,11 +1,11 @@
-// ***NRMA Floodlight Tags for Tealium***
+// ***NRMA Floodlight Tags for Manage***
 // Last Generated: 2020-07-20T06:10:19
 // Number of tags converted: 79
 
 window.load = window.load || {};
 window.load.tags = window.load.tags || {};
-window.load.tags.dcmtagsTealium = window.load.tags.dcmtagsTealium || {};
-window.load.tags.dcmtagsTealium.nrma = {
+window.load.tags.dcmtagsManage = window.load.tags.dcmtagsManage || {};
+window.load.tags.dcmtagsManage.nrma = {
   'NRMA Retargeting Slice Allocation': {
     'type': 'rtgexp',
     'cat': 'retar0',

@@ -1,11 +1,11 @@
-// ***BENDIGOBANK Floodlight Tags for Tealium***
+// ***BENDIGOBANK Floodlight Tags for Manage***
 // Last Generated: 2019-09-29T07:12:31
 // Number of tags converted: 9
 
 window.load = window.load || {};
 window.load.tags = window.load.tags || {};
-window.load.tags.dcmtagsTealium = window.load.tags.dcmtagsTealium || {};
-window.load.tags.dcmtagsTealium.bendigobank = {
+window.load.tags.dcmtagsManage = window.load.tags.dcmtagsManage || {};
+window.load.tags.dcmtagsManage.bendigobank = {
   'SBI - https://insurance.bendigobank.com.au/business-insurance-quote/ - landing page': {
     'type': 'small00',
     'cat': 'small00',
